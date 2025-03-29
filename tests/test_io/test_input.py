@@ -50,3 +50,12 @@ def test_read_from_file_with_pandas_file_not_found():
     result = read_from_file_with_pandas("data/non_existing_file.csv")
     assert result == "Error: File 'data/non_existing_file.csv' not found."
 
+def test_read_from_file_with_pandas_empty_file():
+    test_file = "data/empty_file.csv"
+    with open(test_file, 'w', encoding='utf-8'):
+        pass
+
+    result = read_from_file_with_pandas(test_file)
+    assert result == "Error: File 'data/empty_file.csv' is empty."
+
+    os.remove(test_file)
