@@ -45,3 +45,8 @@ def test_read_from_file_with_pandas_success():
     assert result.shape[0] == 2
 
     os.remove(test_file)
+
+def test_read_from_file_with_pandas_file_not_found():
+    result = read_from_file_with_pandas("data/non_existing_file.csv")
+    assert result == "Error: File 'data/non_existing_file.csv' not found."
+
