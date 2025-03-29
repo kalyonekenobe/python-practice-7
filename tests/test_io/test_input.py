@@ -17,3 +17,6 @@ def test_read_from_file_success():
 
     os.remove(test_file)
 
+def test_read_from_file_file_not_found():
+    result = read_from_file("data/non_existing_file.txt")
+    assert result == "Error: File 'data/non_existing_file.txt' not found."
